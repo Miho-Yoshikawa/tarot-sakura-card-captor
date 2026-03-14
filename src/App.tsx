@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { clowCards, ClowCard as ClowCardType } from "./data/cards";
 import { ClowCard } from "./components/ClowCard";
 import { Sparkles, Download } from "lucide-react";
-import { toPng } from "html-to-image";
+import { toPng, toBlob } from "html-to-image";
 
 type SpreadPosition = "Passado" | "Presente" | "Futuro";
 
@@ -57,14 +57,35 @@ export default function App() {
     if (!printRef.current) return;
     setIsDownloading(true);
     try {
-      const dataUrl = await toPng(printRef.current, {
+      // Ensure all images are loaded before capturing
+      const images = printRef.current.querySelectorAll("img");
+      await Promise.all(
+        Array.from(images).map((img) => {
+          const image = img as HTMLImageElement;
+          if (image.complete) return Promise.resolve();
+          return new Promise((resolve, reject) => {
+            image.onload = resolve;
+            image.onerror = reject;
+          });
+        })
+      );
+
+      const blob = await toBlob(printRef.current, {
         backgroundColor: "#fff0f5",
         pixelRatio: 2,
+        skipFonts: true,
       });
+
+      if (!blob) throw new Error("Failed to generate blob");
+
+      const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
-      link.download = `leitura-clow-${new Date().toISOString().split('T')[0]}.png`;
-      link.href = dataUrl;
+      link.download = `leitura-clow-${new Date().toISOString().split("T")[0]}.png`;
+      link.href = url;
       link.click();
+      
+      // Cleanup
+      setTimeout(() => URL.revokeObjectURL(url), 100);
     } catch (err) {
       console.error("Failed to generate image", err);
       alert("Erro ao gerar a imagem. Tente novamente.");
