@@ -27,7 +27,7 @@ export function ClowCard({ card, isFlipped, onClick, className, delay = 0 }: Clo
 
   return (
     <div 
-      className={cn("relative w-[147px] h-[324px] cursor-pointer perspective-1000 flex-shrink-0 group", className)}
+      className={cn("relative w-[148px] h-[312px] cursor-pointer perspective-1000 flex-shrink-0 group", className)}
       onClick={onClick}
     >
       <motion.div
@@ -56,12 +56,12 @@ export function ClowCard({ card, isFlipped, onClick, className, delay = 0 }: Clo
         </div>
 
         {/* Front of the card (Image) */}
-        <div className="absolute w-full h-full backface-hidden rotate-y-180 rounded-xl overflow-hidden border-[6px] border-[#e6c27a] shadow-xl bg-white flex flex-col">
+        <div className="absolute w-full h-full backface-hidden rotate-y-180 rounded-xl overflow-hidden border-[6px] border-[#e6c27a] shadow-xl bg-[#e6c27a] flex flex-col">
           {card ? (
             <img 
               src={card.imageUrl} 
               alt={card.name}
-              className="w-full h-full object-contain bg-[#fdf5e6]"
+              className="w-full h-full object-cover scale-[1.02] bg-transparent"
               referrerPolicy="no-referrer"
             />
           ) : (

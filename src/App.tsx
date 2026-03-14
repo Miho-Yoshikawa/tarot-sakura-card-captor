@@ -138,7 +138,7 @@ export default function App() {
               className="px-6 py-3 rounded-full border-2 border-[#e6c27a] bg-white text-[#8b1c31] focus:outline-none focus:border-[#e05a7e] text-center text-lg mb-8 w-full max-w-md shadow-sm placeholder:text-[#8b1c31]/40"
             />
 
-            <div className="relative w-[147px] h-[324px] mb-12">
+            <div className="relative w-[148px] h-[312px] mb-12">
               {/* Stack of cards effect */}
               {[...Array(5)].map((_, i) => (
                 <div 
@@ -333,10 +333,10 @@ export default function App() {
               {drawnCards.map((drawn, i) => (
                 <div key={i} className="flex flex-col items-center w-1/3">
                   <h3 className="text-2xl font-serif italic mb-6 text-[#e05a7e]">{drawn.position}</h3>
-                  <div className="w-[178px] h-[392px] rounded-xl overflow-hidden border-[6px] border-[#e6c27a] bg-white shadow-xl mb-6">
+                  <div className="w-[184px] h-[392px] rounded-xl overflow-hidden border-[6px] border-[#e6c27a] bg-[#e6c27a] shadow-xl mb-6">
                     <img 
                       src={drawn.card.imageUrl} 
-                      className="w-full h-full object-contain bg-[#fdf5e6]" 
+                      className="w-full h-full object-cover scale-[1.02] bg-transparent" 
                       alt={drawn.card.namePt}
                     />
                   </div>
