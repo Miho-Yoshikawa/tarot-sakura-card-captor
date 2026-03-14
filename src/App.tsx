@@ -58,7 +58,6 @@ export default function App() {
     setIsDownloading(true);
     try {
       const dataUrl = await toPng(printRef.current, {
-        cacheBust: true,
         backgroundColor: "#fff0f5",
         pixelRatio: 2,
       });
@@ -290,7 +289,6 @@ export default function App() {
                   <div className="w-56 h-[392px] rounded-xl overflow-hidden border-[6px] border-[#e6c27a] bg-white shadow-xl mb-6">
                     <img 
                       src={drawn.card.imageUrl} 
-                      crossOrigin="anonymous" 
                       className="w-full h-full object-contain bg-[#fdf5e6]" 
                       alt={drawn.card.namePt}
                     />
