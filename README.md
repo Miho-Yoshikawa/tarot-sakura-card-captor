@@ -1,20 +1,55 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Tarô Sakura 🌸
 
-# Run and deploy your AI Studio app
+Uma aplicação web interativa de leitura de Tarô inspirada no universo de Sakura Card Captor. O projeto foi desenvolvido para ser totalmente estático, sem custos de API e com todos os recursos (incluindo imagens) armazenados localmente.
 
-This contains everything you need to run your app locally.
+## ✨ Funcionalidades
 
-View your app in AI Studio: https://ai.studio/apps/8381b909-25fa-46a1-9f4a-31d6dffcc790
+- **Leitura de 3 Cartas:** Passado, Presente e Futuro.
+- **Interpretações Estáticas:** Significados e conselhos detalhados para cada uma das 52 cartas.
+- **Resumo da Jornada:** Lógica personalizada para gerar um resumo da leitura.
+- **Imagens Locais:** Todas as cartas estão armazenadas na pasta `public/cards/`, garantindo que o app funcione offline e sem dependências externas.
+- **Design Responsivo:** Interface moderna e fluida utilizando Tailwind CSS e animações com Motion.
 
-## Run Locally
+## 🚀 Tecnologias Utilizadas
 
-**Prerequisites:**  Node.js
+- **React 19**
+- **Vite**
+- **Tailwind CSS 4**
+- **Motion** (Framer Motion)
+- **Lucide React** (Ícones)
+- **TypeScript**
 
+## 🛠️ Como Executar o Projeto
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+1. **Clone o repositório:**
+   ```bash
+   git clone <url-do-seu-repositorio>
+   ```
+
+2. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
+
+3. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Acesse no navegador:**
+   O projeto estará disponível em `http://localhost:3000`.
+
+## 📦 Build para Produção
+
+Para gerar a versão otimizada para deploy:
+```bash
+npm run build
+```
+Os arquivos serão gerados na pasta `dist/`.
+
+## 🛡️ Segurança
+
+O projeto não utiliza chaves de API sensíveis. O arquivo `.env.example` está presente apenas como referência para configurações de ambiente, mas não é necessário para o funcionamento básico da aplicação estática.
+
+---
+Desenvolvido com ❤️ para fãs de Sakura Card Captor.
