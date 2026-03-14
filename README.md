@@ -7,7 +7,7 @@ Uma aplicação web interativa de leitura de Tarô inspirada no universo de Saku
 - **Leitura de 3 Cartas:** Passado, Presente e Futuro.
 - **Interpretações Estáticas:** Significados e conselhos detalhados para cada uma das 52 cartas.
 - **Resumo da Jornada:** Lógica personalizada para gerar um resumo da leitura.
-- **Imagens Locais:** Todas as cartas estão armazenadas na pasta `public/cards/`, garantindo que o app funcione offline e sem dependências externas.
+- **Imagens Otimizadas:** Todas as cartas estão armazenadas na pasta `public/cards/` no formato `.webp`, garantindo alta qualidade com baixo tamanho de arquivo.
 - **Design Responsivo:** Interface moderna e fluida utilizando Tailwind CSS e animações com Motion.
 
 ## 🚀 Tecnologias Utilizadas
