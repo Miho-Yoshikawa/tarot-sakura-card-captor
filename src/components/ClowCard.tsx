@@ -27,7 +27,7 @@ export function ClowCard({ card, isFlipped, onClick, className, delay = 0 }: Clo
 
   return (
     <div 
-      className={cn("relative w-48 h-[336px] cursor-pointer perspective-1000 flex-shrink-0 group", className)}
+      className={cn("relative w-[147px] h-[324px] cursor-pointer perspective-1000 flex-shrink-0 group", className)}
       onClick={onClick}
     >
       <motion.div

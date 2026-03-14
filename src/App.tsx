@@ -7,7 +7,7 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { clowCards, ClowCard as ClowCardType } from "./data/cards";
 import { ClowCard } from "./components/ClowCard";
-import { Sparkles, Download } from "lucide-react";
+import { Sparkles, Download, Github } from "lucide-react";
 import { toPng, toBlob } from "html-to-image";
 
 type SpreadPosition = "Passado" | "Presente" | "Futuro";
@@ -103,7 +103,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fff0f5] text-[#8b1c31] font-sans selection:bg-[#ffb7c5] selection:text-[#8b1c31] overflow-x-hidden relative">
+    <div className="min-h-screen bg-[#fff0f5] text-[#8b1c31] font-sans selection:bg-[#ffb7c5] selection:text-[#8b1c31] overflow-x-hidden relative flex flex-col">
       {/* Header */}
       <header className="py-12 flex flex-col items-center justify-center text-center px-4">
         <motion.div
@@ -123,7 +123,7 @@ export default function App() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 pb-24">
+      <main className="container mx-auto px-4 pb-24 flex-grow">
         {!drawnCards.length && !isDrawing ? (
           <motion.div 
             className="flex flex-col items-center justify-center mt-8"
@@ -138,7 +138,7 @@ export default function App() {
               className="px-6 py-3 rounded-full border-2 border-[#e6c27a] bg-white text-[#8b1c31] focus:outline-none focus:border-[#e05a7e] text-center text-lg mb-8 w-full max-w-md shadow-sm placeholder:text-[#8b1c31]/40"
             />
 
-            <div className="relative w-48 h-[336px] mb-12">
+            <div className="relative w-[147px] h-[324px] mb-12">
               {/* Stack of cards effect */}
               {[...Array(5)].map((_, i) => (
                 <div 
@@ -290,6 +290,32 @@ export default function App() {
         )}
       </main>
 
+      {/* Footer */}
+      <footer className="w-full py-8 mt-auto border-t border-[#ffb7c5]/30">
+        <div className="container mx-auto px-4 text-center flex flex-col items-center justify-center gap-3">
+          <p className="opacity-80 flex items-center gap-1 justify-center">
+            Desenvolvido por
+            <a 
+              href="https://github.com/Miho-Yoshikawa" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="font-bold hover:text-[#e05a7e] transition-colors duration-300 ml-1"
+            >
+              Miho-Yoshikawa
+            </a>
+          </p>
+          <a
+            href="https://github.com/Miho-Yoshikawa/tarot-sakura-card-captor"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm opacity-70 hover:opacity-100 hover:text-[#e05a7e] transition-all duration-300 bg-white/50 px-4 py-2 rounded-full border border-[#ffb7c5]"
+          >
+            <Github size={16} />
+            <span className="font-medium">Projeto no GitHub</span>
+          </a>
+        </div>
+      </footer>
+
       {/* Hidden Shareable View for html2canvas */}
       {allFlipped && (
         <div className="absolute left-[-9999px] top-0">
@@ -307,7 +333,7 @@ export default function App() {
               {drawnCards.map((drawn, i) => (
                 <div key={i} className="flex flex-col items-center w-1/3">
                   <h3 className="text-2xl font-serif italic mb-6 text-[#e05a7e]">{drawn.position}</h3>
-                  <div className="w-56 h-[392px] rounded-xl overflow-hidden border-[6px] border-[#e6c27a] bg-white shadow-xl mb-6">
+                  <div className="w-[178px] h-[392px] rounded-xl overflow-hidden border-[6px] border-[#e6c27a] bg-white shadow-xl mb-6">
                     <img 
                       src={drawn.card.imageUrl} 
                       className="w-full h-full object-contain bg-[#fdf5e6]" 
